@@ -11,6 +11,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  /* background-color: #2196F3; */
+  /* padding: 10px; */
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
 /* Style the header */
 .header {
   grid-area: header;
@@ -26,7 +42,7 @@ body {
 /* Style the top navigation */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: white;
   z-index: 2;
   width: 100%;
   top: 0;
@@ -35,7 +51,7 @@ body {
 /* Add a black background color to the top navigation */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -48,8 +64,8 @@ body {
 }
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #edf7ff;
+  color: black;
 }
 
 /* Style the side navigation */
@@ -84,6 +100,9 @@ body {
   padding-left: 20px;
 }
 
+.header {
+  background-color: white;
+}
 
 </style>
 </head>
@@ -91,26 +110,35 @@ body {
   <div class="header">
     <h2><img alt="EVORKS" src="logo_1.png" height="70"></h2>
   </div>
-<div class="topnav">
-  <a class="active" href="#new_tenders">НОВЫЕ ЗАЯВКИ</a>
-  <a href="#positions">РАССТАНОВКА</a>
-  <a href="#control">КОНТРОЛЬ</a>
-  <a href="#finished">ЗАВЕРШИЛИ</a>
-  <a href="#tabel">ТАБЕЛЬ</a>
-</div>
 
-<div class="sidenav">
-  <a href="#add_tender">СОЗДАТЬ ЗАЯВКУ</a>
-  <a href="#tenders">ЗАЯВКИ</a>
-  <a href="#base">БАЗА ЗАЯВОК</a>
-  <a href="#finished">ВЫПОЛНЕННЫЕ ЗАЯВКИ</a>
-  <a href="#profile">ПРОФИЛЬ</a>
-</div>
+  <div class="grid-container">
+    <div>
+      <div class="sidenav">
+        <a href="#add_tender">СОЗДАТЬ ЗАЯВКУ</a>
+        <a href="#tenders">ЗАЯВКИ</a>
+        <a href="#base">БАЗА ЗАЯВОК</a>
+        <a href="#finished">ВЫПОЛНЕННЫЕ ЗАЯВКИ</a>
+        <a href="#profile">ПРОФИЛЬ</a>
+      </div>
+    </div>
+    <div>
+      <div class="topnav">
+        <!-- <a class="active" href="#new_tenders">НОВЫЕ ЗАЯВКИ</a> -->
+        <a href="#new_tenders">НОВЫЕ ЗАЯВКИ</a>
+        <a href="#positions">РАССТАНОВКА</a>
+        <a href="#control">КОНТРОЛЬ</a>
+        <a href="#finished">ЗАВЕРШИЛИ</a>
+        <a href="#tabel">ТАБЕЛЬ</a>
+      </div>
 
-<div class="content">
-  <h2>Template</h2>
-  <p>A full-height, fixed sidenav and content.</p>
-</div>
+      <div class="content">
+        <h2>Template</h2>
+        <p>A full-height, fixed sidenav and content.</p>
+      </div>
+    </div>
+  </div>
+
+
 
 </body>
 </html>
