@@ -47,13 +47,27 @@
         в переменной будет “ПРОФИЛЬ”, наоборот - “АВТОРИЗАЦИЯ”) -->
 
         <!-- ВЫБИРАЕТСЯ ТИП ЗАЯВКИ -->
+<!--
         <form action="/action_page.php">
+-->
+		    <form class="create" onclick="functionToExecute();">
           <input type="radio" id="payed" name="application-type" value="payed">
           <label for="payed">Платная</label><br>
           <input type="radio" id="free" name="application-type" value="free">
           <label for="free">Бесплатная</label><br>
-          <input type="submit" value="Создать">
-        </form> 
+          <p>
+            <input type="submit" value="Создать">
+          </p>
+        </form>
+
+        <!-- DATE AND TIME -->
+        <p>
+          <input type="date" name="date">
+          <input type="time" name="time">
+        </p>
+        <!-- TEL -->
+        <label for="tel">Тел.:</label>
+        <input id="tel" type="tel">
 
       </div>
     </div>
