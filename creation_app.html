@@ -1,3 +1,7 @@
+<!-- Представляет собой форму в несколько блоков, в которых происходит 
+сбор необходимой информации (Тип заявки, дата, время, цена за час, адрес, 
+количество часов, количество рабочих, наличие qr кода, возраст рабочего, 
+навык рабочего, вид работ, комментарий к заявке, тарификация) -->
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -38,10 +42,15 @@
         <h2>СОЗДАНИЕ ЗАЯВКИ</h2>
         <p>Какое-то содержание</p>
         
+        <!-- account_button
+        содержит в себе текст кнопки профиля (если человек авторизован, 
+        в переменной будет “ПРОФИЛЬ”, наоборот - “АВТОРИЗАЦИЯ”) -->
+
+        <!-- ВЫБИРАЕТСЯ ТИП ЗАЯВКИ -->
         <form action="/action_page.php">
-          <input type="radio" id="payed" name="application-type" value="HTML">
+          <input type="radio" id="payed" name="application-type" value="payed">
           <label for="payed">Платная</label><br>
-          <input type="radio" id="free" name="application-type" value="CSS">
+          <input type="radio" id="free" name="application-type" value="free">
           <label for="free">Бесплатная</label><br>
           <input type="submit" value="Создать">
         </form> 
