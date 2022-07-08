@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
-    <!-- {% include 'header.html' %} -->
+  <!-- {% include 'header.html' %} -->
 
   <div>
       <div class="header">
@@ -36,7 +36,13 @@
   <div class="content">
     <h2>ГЛАВНАЯ СТРАНИЦА</h2>
     <p>Какое-то содержание</p>
-    <button onclick="TestFunction();">КНОПКА</button>
+    <p><button onclick="TestFunction();">КНОПКА</button></p>
+    <p>
+      <button type="button" onclick="if (document.getElementById('free').checked == true){
+          infoparsing(); 
+          document.getElementById('create').submit();}else{document.getElementById('fifth-dialog').style.display = 'none'; 
+          document.getElementById('sixth-dialog').style.display = 'block';
+        }">Далее</button></p>
   </div>
 
 </body>
