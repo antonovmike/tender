@@ -14,77 +14,59 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
-  <div class="grid-container">
-    <div class="item1">
+  <!-- {% include 'header.html' %} -->
+
+  <div>
       <div class="header">
         <h2>
           <a href="index.html">
             <img alt="EVORKS" src="img/logo_1.png"
             width="180">
-          </a>
+         </a>
         </h2>
       </div>
-      <!-- <div class="sidenav">
-        <a href="index.html" style="color:#5947fe">ГЛАВНАЯ СТРАНИЦА</a>
-        <a href="created_app.html">БАЗА ЗАЯВОК</a>
-
-        <div class="dropdown">
-          <span>БАЗА ЗАЯВОК</span>
-          <div class="dropdown-content">
-            <a href="created_app.html">Исполняются</a>
-            <a href="created_app.html">Завершены</a>
-            <a href="created_app.html">Все заявки</a>
-          </div>
-        </div>
-  
-        <a href="finished.html">ВЫПОЛНЕННЫЕ ЗАЯВКИ</a>
-        <a href="#profile">ПРОФИЛЬ</a> -->
-      </div>
-    </div>
-    <!-- <div class="item2">item2</div> -->
     <div class="item3">
       <div class="topnav">
-        <!-- <a class="active" href="#new_tenders">НОВЫЕ ЗАЯВКИ</a> -->
         <a href="creation_app.html">СОЗДАНИЕ ЗАЯВКИ</a>
         <a href="employees.html">РАБОЧИЕ</a>
         <a href="applications.html">ЗАЯВКИ</a>
         <a href="profile.html">ПРОФИЛЬ</a>
-        <a href="auth.html">АВТОРИЗАЦИЯ</a>
-      </div>
-
-      <div class="content">
-        <h2>СОЗДАНИЕ ЗАЯВКИ</h2>
-        <p>Какое-то содержание</p>
-        
-        <!-- account_button
-        содержит в себе текст кнопки профиля (если человек авторизован, 
-        в переменной будет “ПРОФИЛЬ”, наоборот - “АВТОРИЗАЦИЯ”) -->
-
-        <!-- ВЫБИРАЕТСЯ ТИП ЗАЯВКИ -->
-<!--
-        <form action="/action_page.php">
--->
-		    <form class="create" onclick="functionToExecute();">
-          <input type="radio" id="payed" name="application-type" value="payed">
-          <label for="payed">Платная</label><br>
-          <input type="radio" id="free" name="application-type" value="free">
-          <label for="free">Бесплатная</label><br>
-          <p>
-            <input type="submit" value="Создать">
-          </p>
-        </form>
-
-        <!-- DATE AND TIME -->
-        <p>
-          <input type="date" name="date">
-          <input type="time" name="time">
-        </p>
-        <!-- TEL -->
-        <label for="tel">Тел.:</label>
-        <input id="tel" type="tel">
-
+        <a href="auth.html">{{account_button}}</a>
       </div>
     </div>
+  </div>
+
+  <div class="content">
+    <h2>СОЗДАНИЕ ЗАЯВКИ</h2>
+    <p>Какое-то содержание</p>
+        
+    <!-- account_button
+    содержит в себе текст кнопки профиля (если человек авторизован, 
+    в переменной будет “ПРОФИЛЬ”, наоборот - “АВТОРИЗАЦИЯ”) -->
+
+    <!-- ВЫБИРАЕТСЯ ТИП ЗАЯВКИ -->
+<!--
+    <form action="/action_page.php">
+-->
+		<form class="create" onclick="functionToExecute();">
+      <input type="radio" id="payed" name="application-type" value="payed">
+      <label for="payed">Платная</label><br>
+      <input type="radio" id="free" name="application-type" value="free">
+      <label for="free">Бесплатная</label><br>
+      <p>
+        <input type="submit" value="Создать">
+      </p>
+    </form>
+
+        <!-- DATE AND TIME -->
+    <p>
+          <input type="date" name="date">
+          <input type="time" name="time">
+    </p>
+        <!-- TEL -->
+    <label for="tel">Тел.:</label>
+    <input id="tel" type="tel">
+
   </div>
 
 </body>

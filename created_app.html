@@ -11,49 +11,31 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
-  <div class="grid-container">
-    <div class="item1">
+  <!-- {% include 'header.html' %} -->
+
+  <div>
       <div class="header">
         <h2>
           <a href="index.html">
             <img alt="EVORKS" src="img/logo_1.png"
             width="180">
-          </a>
+         </a>
         </h2>
       </div>
-      <!-- <div class="sidenav">
-        <a href="index.html" style="color:#5947fe">ГЛАВНАЯ СТРАНИЦА</a>
-        <a href="created_app.html">БАЗА ЗАЯВОК</a>
-
-        <div class="dropdown">
-          <span>БАЗА ЗАЯВОК</span>
-          <div class="dropdown-content">
-            <a href="created_app.html">Исполняются</a>
-            <a href="created_app.html">Завершены</a>
-            <a href="created_app.html">Все заявки</a>
-          </div>
-        </div>
-  
-        <a href="finished.html">ВЫПОЛНЕННЫЕ ЗАЯВКИ</a>
-        <a href="#profile">ПРОФИЛЬ</a> 
-      </div> -->
-    </div>
-    <div class="item2">item2</div>
     <div class="item3">
       <div class="topnav">
-        <!-- <a class="active" href="#new_tenders">НОВЫЕ ЗАЯВКИ</a> -->
         <a href="creation_app.html">СОЗДАНИЕ ЗАЯВКИ</a>
         <a href="employees.html">РАБОЧИЕ</a>
         <a href="applications.html">ЗАЯВКИ</a>
         <a href="profile.html">ПРОФИЛЬ</a>
-        <a href="auth.html">АВТОРИЗАЦИЯ</a>
-      </div>
-
-      <div class="content">
-        <h2>БАЗА ЗАЯВОК</h2>
-        <p>Список созданных заявок</p>
+        <a href="auth.html">{{account_button}}</a>
       </div>
     </div>
+  </div>
+
+  <div class="content">
+    <h2>БАЗА ЗАЯВОК</h2>
+    <p>Список созданных заявок</p>
   </div>
 
 </body>
