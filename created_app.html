@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-  <title>БАЗА ЗАЯВОК</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+  <head>
+    <title>ЭВОРКС</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js" type="text/javascript"></script>
+  </head>
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,15 +14,26 @@
   <div class="grid-container">
     <div class="item1">
       <div class="header">
-        <a href="index.html">
-          <img alt="EVORKS" src="img/logo_1.png"
-          width="180">
-        </a>
+        <h2>
+          <a href="index.html">
+            <img alt="EVORKS" src="img/logo_1.png"
+            width="180">
+          </a>
+        </h2>
       </div>
       <div class="sidenav">
         <a href="index.html" style="color:#5947fe">ГЛАВНАЯ СТРАНИЦА</a>
-        <!-- <a href="#tenders">ЗАЯВКИ</a> -->
-        <a href="created_app.html">БАЗА ЗАЯВОК</a>
+        <!-- <a href="created_app.html">БАЗА ЗАЯВОК</a> -->
+
+        <div class="dropdown">
+          <span>БАЗА ЗАЯВОК</span>
+          <div class="dropdown-content">
+            <a href="created_app.html">Исполняются</a>
+            <a href="created_app.html">Завершены</a>
+            <a href="created_app.html">Все заявки</a>
+          </div>
+        </div>
+  
         <a href="finished.html">ВЫПОЛНЕННЫЕ ЗАЯВКИ</a>
         <!-- <a href="#profile">ПРОФИЛЬ</a> -->
       </div>
