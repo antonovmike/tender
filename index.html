@@ -11,13 +11,10 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
+  <!-- <div> -->
+    <!-- {% include 'header.html' %} -->
+    
   <div>
-    <!-- <div> -->
-      <!-- {% include 'header.html' %} -->
-      <!-- <div w3-include-html="header.html"></div> -->
-      <!-- <div class="header">
-        <iframe src="header.html"></iframe>
-      </div> -->
       <div class="header">
         <h2>
           <a href="index.html">
@@ -26,24 +23,21 @@
          </a>
         </h2>
       </div>
-    <!-- </div> -->
-    <!-- <div class="item2">item2</div> -->
     <div class="item3">
       <div class="topnav">
-        <!-- <a class="active" href="#new_tenders">НОВЫЕ ЗАЯВКИ</a> -->
         <a href="creation_app.html">СОЗДАНИЕ ЗАЯВКИ</a>
         <a href="employees.html">РАБОЧИЕ</a>
         <a href="applications.html">ЗАЯВКИ</a>
         <a href="profile.html">ПРОФИЛЬ</a>
         <a href="auth.html">{{account_button}}</a>
       </div>
-
-      <div class="content">
-        <h2>ГЛАВНАЯ СТРАНИЦА</h2>
-        <p>Какое-то содержание</p>
-        <button onclick="TestFunction();">КНОПКА</button>
-      </div>
     </div>
+  </div>
+
+  <div class="content">
+    <h2>ГЛАВНАЯ СТРАНИЦА</h2>
+    <p>Какое-то содержание</p>
+    <button onclick="TestFunction();">КНОПКА</button>
   </div>
 
 </body>
