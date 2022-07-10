@@ -64,10 +64,23 @@
           <input type="time" name="time">
     </p>
         <!-- TEL -->
-    <label for="tel">Тел.:</label>
-    <input id="tel" type="tel">
+    <p>
+      <label for="tel">Тел.:</label>
+      <input id="tel" type="tel">
+    </p>
 
-    <!-- qr-code-select -->
+    <!-- BUTTON NEXT -->
+    <button type="button" onclick="if (document.getElementById('free').checked == true){
+        infoparsing();
+        document.getElementById('create').submit();
+      } else {
+        document.getElementById('fifth-dialog').style.display = 'none';
+        document.getElementById('sixth-dialog').style.display = 'block';
+      }">
+      Далее
+    </button>
+    <p></p>
+    <!-- QR CODE SELECT -->
     <div class="collection-elem">
       <label for="qr-code-select">Нужен ли QR-код:</label>
       <select id="qr-code-select" name="qr-code-select" required>
@@ -75,7 +88,8 @@
           <option>Да</option>
       </select>
     </div>
-    <!-- age-select -->
+    <p></p>
+    <!-- AGE SELECT -->
     <div class="collection-elem">
         <label for="age-select">Какого возраста нужны рабочие:</label>
         <select id="age-select" name="age-select" required>
@@ -85,7 +99,8 @@
             <option>После 45</option>
         </select>
     </div>
-    <!-- skill-select -->
+    <p></p>
+    <!-- SKILL SELECT -->
     <div class="collection-elem">
         <label for="skill-select">Какими навыками должен обладать рабочий:</label>
         <select id="skill-select" name="skill-select" required>
@@ -110,7 +125,8 @@
             <option>Дорожный рабочий</option>
         </select>
     </div>
-    <!-- kind-of-work-select -->
+    <p></p>
+    <!-- KIND OF WORK SELECT -->
     <div class="collection-elem">
         <label for="kind-of-work-select">Какой тип работы прийдётся выполнять:</label>
         <select id="kind-of-work-select" required name="kind-of-work-select">
@@ -124,6 +140,7 @@
             <option>Работы за городом</option>
         </select>
     </div>
+    <p></p>
 
   </div>
 
