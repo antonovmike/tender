@@ -70,32 +70,6 @@ body {
   color: black;
 }
 
-/* SIDE NAVIGATION */
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 10;
-  left: 0;
-  background-color: #edf7ff;
-  overflow-x: hidden;
-}
-
-/* Side navigation links */
-.sidenav a {
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color on hover */
-.sidenav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 /* Style the content */
 .content {
   margin-left: 10px;
