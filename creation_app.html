@@ -44,20 +44,6 @@
     содержит в себе текст кнопки профиля (если человек авторизован, 
     в переменной будет “ПРОФИЛЬ”, наоборот - “АВТОРИЗАЦИЯ”) -->
 
-    <!-- ВЫБИРАЕТСЯ ТИП ЗАЯВКИ -->
-<!--
-    <form action="/action_page.php">
--->
-		<form class="create" onclick="functionToExecute();">
-      <input type="radio" id="payed" name="application-type" value="payed">
-      <label for="payed">Платная</label><br>
-      <input type="radio" id="free" name="application-type" value="free">
-      <label for="free">Бесплатная</label><br>
-      <p>
-        <input type="submit" value="Создать">
-      </p>
-    </form>
-
         <!-- DATE AND TIME -->
     <p>
           <input type="date" name="date">
@@ -69,17 +55,16 @@
       <input id="tel" type="tel">
     </p>
 
-    <!-- BUTTON NEXT -->
-    <button type="button" onclick="if (document.getElementById('free').checked == true){
-        infoparsing();
-        document.getElementById('create').submit();
-      } else {
-        document.getElementById('fifth-dialog').style.display = 'none';
-        document.getElementById('sixth-dialog').style.display = 'block';
-      }">
-      Далее
-    </button>
+    <!-- QR CODE SELECT -->
+    <div class="collection-elem">
+      <label for="payed">Тип заявки:</label>
+      <select id="payed-select" name="payed-select" required>
+          <option selected>Платная</option>
+          <option>Бесплатная</option>
+      </select>
+    </div>
     <p></p>
+
     <!-- QR CODE SELECT -->
     <div class="collection-elem">
       <label for="qr-code-select">Нужен ли QR-код:</label>
@@ -140,6 +125,19 @@
             <option>Работы за городом</option>
         </select>
     </div>
+    <p></p>
+
+    <!-- BUTTON NEXT -->
+    <button type="button" onclick="
+      if (document.getElementById('free').checked == true){
+        infoparsing();
+        document.getElementById('create').submit();
+      } else {
+        document.getElementById('fifth-dialog').style.display = 'none';
+        document.getElementById('sixth-dialog').style.display = 'block';
+      }">
+      Далее
+    </button>
     <p></p>
 
   </div>
