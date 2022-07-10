@@ -2,6 +2,6 @@ function TestFunction() {
     alert("TEST");
 }
 
-function functionToExecute() {
-	alert("CLICKED");
-}
+document.getElementById("DOMContentLoaded", function () {
+
+})
