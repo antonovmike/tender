@@ -1,159 +1,163 @@
-<!-- Представляет собой форму в несколько блоков, в которых происходит 
-сбор необходимой информации (Тип заявки, дата, время, цена за час, адрес, 
-количество часов, количество рабочих, наличие qr кода, возраст рабочего, 
-навык рабочего, вид работ, комментарий к заявке, тарификация) -->
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>СОЗДАНИЕ ЗАЯВКИ</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/icon.ico' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css' )}}" type="text/css">
+    <title>Evorks - Создание заявки</title>
 </head>
+<body class="main_body">
+    <script src="{{ url_for('static', filename = 'scripts/main.js' )}}"></script>
+    {% include 'header.html' %}
+    <div class="creation-page-container">
+        <div class="collection-info">
+            <form action="/creation-application" method="post" id="create">
+                <div id="first-dialog" class="collection-elem-radio ">
+                    <div class="vip-block">
+                        <input type="radio" name="type_app" id="vip" checked value="vip">
+                        <label for="vip"> <b>Воспользоваться технологией подбора (от 400 руб.)</b> </label>
+                        <p class="description-type-app">
+                            • 100% гарантия поиска ( от 5 минут ) <br>
+                            • Контроль выхода на объект<br>
+                            • Умный подбор наиболее подходящего исполнителя<br>
+                            • Оплата только за принятого на работу исполнителя<br>
+                        </p><br>
+                    </div>
+                    <div class="free-block">
+                        <input type="radio" name="type_app" id="free" value="free">
+                        <label for="free"><b>Выложить бесплатно</b></label>
+                        <p class="description-type-app">
+                            • Без гарантии поиска<br>
+                            • Без контроля выхода<br>
+                            • Вашу вакансию  увидят все участники платформы<br>
+                        </p>
+                    </div>
+                    <button type="button" onclick="document.getElementById('first-dialog').style.display = 'none'; document.getElementById('second-dialog').style.display = 'block';">Далее</button>
+                </div>
 
-<link rel="stylesheet" href="style.css">
+                <div id="second-dialog" style="display: none;">
+                    <div class="collection-elem">
+                        <label for="date-input">Когда нужен работник:</label>
+                        <input type="date" id="date-input" name="date-input" autocomplete="off" required>
+                    </div>
+                    <div class="collection-elem">
+                        <label for="time-input">Во сколько работнику нужно будет приехать на объект:</label>
+                        <input type="time" id="time-input" name="time-input" autocomplete="off" required>
+                    </div>
+                    <div class="collection-elem">
+                        <label for="price-per-hour-input">Предложите вашу цену за час:</label>
+                        <input type="number" id="price-per-hour-input" name="price-per-hour-input" autocomplete="off" required onblur="this.value=this.value.replace(/[^0-9]+/g,''); isright(this);">
+                    </div>
+                    <button type="button" onclick="document.getElementById('second-dialog').style.display = 'none'; document.getElementById('third-dialog').style.display = 'block';">Далее</button>
+                </div>
 
-<body>
-  <!-- {% include 'header.html' %} -->
 
-  <div>
-      <div class="header">
-        <h2>
-          <a href="index.html">
-            <img alt="EVORKS" src="img/logo_1.png"
-            width="180">
-         </a>
-        </h2>
-      </div>
-    <!-- MENU -->
-    <div class="item3">
-      <div class="topnav">
-        <a href="creation_app.html">СОЗДАНИЕ ЗАЯВКИ</a>
-        <a href="employees.html">РАБОЧИЕ</a>
-        <a href="applications.html">ЗАЯВКИ</a>
-        <a href="profile.html">ПРОФИЛЬ</a>
-        <a href="auth.html">{{account_button}}</a>
-      </div>
+                <div id="third-dialog" style="display: none;">
+                    <div class="collection-elem">
+                        <label for="address-input">Какой адрес объекта:</label>
+                        <input type="text" id="address-input" name="address-input" autocomplete="off" required>
+                    </div>
+                    <div class="collection-elem">
+                        <label for="count-hours-input">Сколько часов примерно нужно работать: (Минимум 3)</label>
+                        <input type="tel" id="count-hours-input" name="count-hours-input" autocomplete="off" required onblur="this.value=this.value.replace(/[^0-9]+/g,''); isrightH(this);">
+                    </div>
+                    <div class="collection-elem">
+                        <label for="count-persons-input">Сколько человек нужно:</label>
+                        <input type="tel" id="count-persons-input" name="count-persons-input" autocomplete="off" required>
+                    </div>
+                    <button type="button" onclick="document.getElementById('third-dialog').style.display = 'none'; document.getElementById('fourth-dialog').style.display = 'block';">Далее</button>
+                </div>
+
+                
+                <div id="fourth-dialog" style="display: none;">
+                    <div class="collection-elem">
+                        <label for="qr-code-select">Нужен ли QR-код:</label>
+                        <select id="qr-code-select" name="qr-code-select" required>
+                            <option selected>Нет</option>
+                            <option>Да</option>
+                        </select>
+                    </div>
+                    <div class="collection-elem">
+                        <label for="age-select">Какого возраста нужны рабочие:</label>
+                        <select id="age-select" name="age-select" required>
+                            <option>Не важно</option>
+                            <option>До 21</option>
+                            <option>21 - 45</option>
+                            <option>После 45</option>
+                        </select>
+                    </div>
+                    <div class="collection-elem">
+                        <label for="skill-select">Какими навыками должен обладать рабочий:</label>
+                        <select id="skill-select" name="skill-select" required>
+                            <option>Без специальных навыков</option>
+                            <option>Бетонщик</option>                           
+                            <option>Сварщик</option>
+                            <option>Кровельщик</option>
+                            <option>Отделочник</option>
+                            <option>Фасадчик</option>
+                            <option>Электрик</option>
+                            <option>Сантехник</option>
+                            <option>Моляр</option>
+                            <option>Штукатур</option>
+                            <option>Плиточник</option>
+                            <option>Гипсокартонщик</option>
+                            <option>Плотник</option>
+                            <option>Слесарь</option>
+                            <option>Механик</option>
+                            <option>Высотник</option>
+                            <option>Пескоструйщик</option>
+                            <option>Каменщик</option>
+                            <option>Дорожный рабочий</option>
+                        </select>
+                    </div>
+                    <div class="collection-elem">
+                        <label for="kind-of-work-select">Какой тип работы прийдётся выполнять:</label>
+                        <select id="kind-of-work-select" required name="kind-of-work-select">
+                            <option>Стандартные работы</option>
+                            <option>Таскать тяжести </option>                           
+                            <option>Высотные работы </option>
+                            <option>Работы с электроинструментом </option>
+                            <option>Грязные работы </option>
+                            <option>Специальные работы </option>
+                            <option>Командировочные работы </option>
+                            <option>Работы за городом</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="document.getElementById('fourth-dialog').style.display = 'none'; document.getElementById('fifth-dialog').style.display = 'block';">Далее</button>
+                </div>
+
+                
+                <div id="fifth-dialog" style="display: none;">
+                    <div class="collection-elem textarea-label">
+                        <label id="textarea-label" for="comment-area">Напишите подробное описания работ, которые нужно будет сделать:</label><br>
+                        <textarea id="comment-area" required name="comment-area"></textarea>
+                    </div>
+                    <button type="button" onclick="if (document.getElementById('free').checked == true){infoparsing(); document.getElementById('create').submit();}else{document.getElementById('fifth-dialog').style.display = 'none'; document.getElementById('sixth-dialog').style.display = 'block';}">Далее</button>
+                </div>
+                <div id="sixth-dialog" style="display:none;" class="collection-elem-radio">
+                    <input type="radio" name="fee-type" id="hour" value="hour">
+                    <label for="hour">
+                        От 3 часов до 1 дня (комиссия - 400 рублей за человека)
+                    </label><br>
+                    <input type="radio" name="fee-type" id="day" value="day">
+                    <label for="day">
+                        От 1 до 3 дней (комиссия - 800 рублей за человека)
+                    </label><br>
+                    <input type="radio" name="fee-type" id="week" value="week">
+                    <label for="week">
+                        От 3 до 7 дней (комиссия - 2400 рублей за человека)
+                    </label><br>
+                    <input type="radio" name="fee-type" id="month" value="month">
+                    <label for="month">
+                        От 1 недели до 2 месяцев (комиссия 4000 рублей за человека)
+                    </label><br>
+                    <button type="button" onclick="infoparsing();document.getElementById('create').submit();">Далее</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-
-  <div class="content">
-    <h2>СОЗДАНИЕ ЗАЯВКИ</h2>
-    <p>Какое-то содержание</p>
-
-        <!-- DATE AND TIME -->
-    <p>
-          <input type="date" name="date" min="2022-07-11">
-          <input type="time" name="time" step="10">
-    </p>
-
-        <!-- TEL -->
-    <p>
-      <label for="tel">Тел.:</label>
-      <input id="tel" type="tel" placeholder="81112223344">
-    </p>
-
-    <!-- QR CODE SELECT -->
-    <div class="collection-elem">
-      <label for="payed">Тип заявки:</label>
-      <select id="payed-select" name="payed-select" required>
-          <option selected>Платная</option>
-          <option>Бесплатная</option>
-      </select>
-    </div>
-
-    <!-- QR CODE SELECT -->
-    <div class="collection-elem">
-      <label for="qr-code-select">Нужен ли QR-код:</label>
-      <select id="qr-code-select" name="qr-code-select" required>
-          <option selected>Нет</option>
-          <option>Да</option>
-      </select>
-    </div>
+    <br><br>
     
-    <!-- AGE SELECT -->
-    <div class="collection-elem">
-        <label for="age-select">Какого возраста нужны рабочие:</label>
-        <select id="age-select" name="age-select" required>
-            <option>Не важно</option>
-            <option>До 21</option>
-            <option>21 - 45</option>
-            <option>После 45</option>
-        </select>
-    </div>
-    
-    <!-- WORKING HOURS -->
-    <div class="collection-elem">
-        <label for="time-select">Продолжительность работ:</label>
-        <select id="time-select" name="time-select" required>
-            <option>3 часа</option>
-            <option>4 часа</option>
-            <option>5 часов</option>
-            <option>6 часов</option>
-            <option>7 часов</option>
-            <option>8 часов</option>
-            <option>9 часов</option>
-            <option>10 часов</option>
-            <option>11 часов</option>
-            <option>12 часов</option>
-        </select>
-    </div>
-    
-    <!-- SKILL SELECT -->
-    <div class="collection-elem">
-        <label for="skill-select">Какими навыками должен обладать рабочий:</label>
-        <select id="skill-select" name="skill-select" required>
-            <option>Без специальных навыков</option>
-            <option>Бетонщик</option>                           
-            <option>Сварщик</option>
-            <option>Кровельщик</option>
-            <option>Отделочник</option>
-            <option>Фасадчик</option>
-            <option>Электрик</option>
-            <option>Сантехник</option>
-            <option>Моляр</option>
-            <option>Штукатур</option>
-            <option>Плиточник</option>
-            <option>Гипсокартонщик</option>
-            <option>Плотник</option>
-            <option>Слесарь</option>
-            <option>Механик</option>
-            <option>Высотник</option>
-            <option>Пескоструйщик</option>
-            <option>Каменщик</option>
-            <option>Дорожный рабочий</option>
-        </select>
-    </div>
-    
-    <!-- KIND OF WORK SELECT -->
-    <div class="collection-elem">
-        <label for="kind-of-work-select">Какой тип работы прийдётся выполнять:</label>
-        <select id="kind-of-work-select" required name="kind-of-work-select">
-            <option>Стандартные работы</option>
-            <option>Таскать тяжести </option>                           
-            <option>Высотные работы </option>
-            <option>Работы с электроинструментом </option>
-            <option>Грязные работы </option>
-            <option>Специальные работы </option>
-            <option>Командировочные работы </option>
-            <option>Работы за городом</option>
-        </select>
-    </div>
-
-    <!-- BUTTON NEXT -->
-    <button type="button" onclick="
-      if (document.getElementById('free').checked == true){
-        infoparsing();
-        document.getElementById('create').submit();
-      } else {
-        document.getElementById('fifth-dialog').style.display = 'none';
-        document.getElementById('sixth-dialog').style.display = 'block';
-      }">
-      Далее
-    </button>
-
-  </div>
-
 </body>
-
 </html>

@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-  <head>
-    <title>ЭВОРКС</title>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="script.js" type="text/javascript"></script>
-  </head>
-
-<link rel="stylesheet" href="style.css">
-
-<body>
-  <!-- {% include 'header.html' %} -->
-
-  <div>
-      <div class="header">
-        <h2>
-          <a href="index.html">
-            <img alt="EVORKS" src="img/logo_1.png"
-            width="180">
-         </a>
-        </h2>
-      </div>
-    <div class="item3">
-      <div class="topnav">
-        <a href="creation_app.html">СОЗДАНИЕ ЗАЯВКИ</a>
-        <a href="employees.html">РАБОЧИЕ</a>
-        <a href="applications.html">ЗАЯВКИ</a>
-        <a href="profile.html">ПРОФИЛЬ</a>
-        <a href="auth.html">{{account_button}}</a>
-      </div>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/icon.ico' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css' )}}" type="text/css">
+    <title>Evorks - Подтверждение заявки</title>
+</head>
+<body class="main_body">
+    <script src="{{url_for('static', filename = 'scripts/main.js' )}}" ></script>
+    {% include 'header.html' %}
+    <div class="collection-elem" id="inform" style="padding:0 0 0 8% ;">
+        <label>Тип заявки: <span id="type_of_app">{{type_app}}</span></label> <br>
+        <label>Дата: <span id="app_date">{{date}}</span></label> <br>
+        <label>Время: <span id="app_time">{{time}}</span></label> <br>
+        <label>Цена за час: <span id="app_price_per_hour">{{price_per_hour}}</span></label> <br>
+        <label>Адрес: <span id="app_address">{{address}}</span></label> <br>
+        <label>Количество часов: <span id="app_count_hours">{{count_hours}}</span></label> <br>
+        <label>Количество рабочих: <span id="app_count_persons">{{count_persons}}</span></label> <br>
+        <label>Наличие QR кода : <span id="app_qr">{{qr_code}}</span></label> <br>
+        <label>Возраст рабочих: <span id="app_age">{{age}}</span></label> <br>
+        <label>Навык рабочего: <span id="app_skill">{{skill}}</span></label> <br>
+        <label>Тип работы: <span id="app_kind_of_work">{{kind_of_work}}</span></label> <br>
+        <label>Комментарий: <span id="app_comment">{{comment}}</span></label> <br>
+        <label><span id="app_tariff">{{tariff}}</span></label> <br>
+        <button onclick="document.getElementById('inform').style.display = 'none'; document.getElementById('confirming').style.display = 'block'">Далее</button>
     </div>
-  </div>
-
-  <div class="content">
-    <h2>CONFIRMATION APP</h2>
-    <p>Какое-то содержание</p>
-  </div>
-
+    <div class="code-confirmation collection-elem" style="display:flex; justify-content: center; text-align: center;">
+        
+        <div id="confirming" style="display:none;">
+            <form action="/confirmation-code" method="post">
+                <a href="{{link}}">{{link}}</a><br>
+                <label for="code-input">Введите код, который был вам отправлен</label><br><br>
+                <input type="tel" name="code-input" id="code-input"><br>
+                <button type="submit">Далее</button>
+            </form>
+        </div>
+    </div>
 </body>
-
 </html>
