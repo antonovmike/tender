@@ -25,6 +25,7 @@
          </a>
         </h2>
       </div>
+    <!-- MENU -->
     <div class="item3">
       <div class="topnav">
         <a href="creation_app.html">СОЗДАНИЕ ЗАЯВКИ</a>
@@ -39,20 +40,17 @@
   <div class="content">
     <h2>СОЗДАНИЕ ЗАЯВКИ</h2>
     <p>Какое-то содержание</p>
-        
-    <!-- account_button
-    содержит в себе текст кнопки профиля (если человек авторизован, 
-    в переменной будет “ПРОФИЛЬ”, наоборот - “АВТОРИЗАЦИЯ”) -->
 
         <!-- DATE AND TIME -->
     <p>
-          <input type="date" name="date">
-          <input type="time" name="time">
+          <input type="date" name="date" min="2022-07-11">
+          <input type="time" name="time" step="10">
     </p>
+
         <!-- TEL -->
     <p>
       <label for="tel">Тел.:</label>
-      <input id="tel" type="tel">
+      <input id="tel" type="tel" placeholder="81112223344">
     </p>
 
     <!-- QR CODE SELECT -->
